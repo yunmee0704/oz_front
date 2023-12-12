@@ -1,0 +1,21 @@
+body{
+    text-align: center;
+    padding: 50px;
+    background-color: beige;
+}
+h1{
+    font-size: 50px;
+}
+img{
+    border-radius: 50%;
+}
+div{
+    font-size: 20px;
+}
+hr{
+    border-color: brown;
+}
+span{
+    display: block;
+    margin: 50px 0;
+}
