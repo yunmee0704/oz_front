@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 폼 만들기</title>
+    <link rel="stylesheet" href="./회원가입.css">
+</head>
+<body>
+    <form action="">
+        <h1>오즈코딩스쿨 회원가입</h1>
+        <input type="text" placeholder="이메일을 입력해주세요." name="mail"><br>
+        <input type="text" placeholder="이름을 입력해주세요." name="name"><br>
+        <input type="text" placeholder="비밀번호를 입력해주세요."name="pw"><br>
+        <input type="text" placeholder="비밀번호를 다시 입력해주세요." name="pw_confirm"><br>
+        <div class="phone-num"> <input type="text" class="num"><span>-</span><input type="text"class="num"><span>-</span><input type="text"class="num"></div>
+        
+        <div class="confirm confirm-num">
+            <span>000000</span>
+            <button type="submit" name="submit_btn">인증번호전송</button><br>
+            
+        </div>
+        <div class="confirm done-confirm">
+            <span>3:00</span>
+            <button type="submit" name="confirm_btn">인증확인</button><br>
+        </div>
+        <select name="place" id="place">
+            <option value="1">서울</option>
+            <option value="2">경기도</option>
+            <option value="3">충청도</option>
+            <option value="4">전라도</option>
+            <option value="5">경상도</option>
+            <option value="6">강원도</option>
+            <option value="7">제주도</option>
+        </select><br>
+        <div class="gender">
+            <div class="female"><input type="radio" id="female"><label for="female">여성</label></div>
+            <div class="male"><input type="radio" id="female"><label for="female">남성</label></div>
+        </div>
+        <button type="submit" class="submit">가입하기</button>
+    </form>
+</body>
+</html>
