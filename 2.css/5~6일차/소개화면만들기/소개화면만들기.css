@@ -1,0 +1,63 @@
+/* 공통 */
+ h1{
+    font-size: 40px;
+}
+ p{
+    font-size: 25px;
+}
+
+a{
+    text-decoration: none;
+    color:inherit;
+}
+ul{
+    padding: 0;
+   }
+   li{
+       list-style: none;
+       font-size: 20px;
+       color:brown;
+       font-weight: 900;
+       margin-bottom: 10px;
+   }
+li:before{
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: brown;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px 3px 0;
+}
+
+.container > div{
+    padding: 30px;
+}
+
+
+body{
+    background-color: beige;
+}
+
+
+
+
+.container{
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 20px;
+    margin: 50px;
+}
+.sidebar{
+    width: 20%;
+    background-color: bisque;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    
+}
+
+.main{
+    width: 80%;
+}
