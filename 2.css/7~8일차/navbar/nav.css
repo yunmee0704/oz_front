@@ -1,0 +1,60 @@
+/* 공통 */
+body{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+
+/* 네비바 */
+
+ul{
+	display:flex;
+	text-align: center;
+	align-items: center;
+	background-color: #000;
+	font-weight: 900;
+	color:#fff;
+	line-height: 40px;
+	height: 80px;
+}
+
+
+
+ul li{
+	height: inherit;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+ul li:first-child{
+ display: none;
+}
+
+ul li:hover{
+	background-color: yellow;
+	color:#000;
+}
+ul .menu:hover{
+	background-color: #000;
+	color:#fff;
+}
+
+@media screen and (max-width:750px){
+ ul{
+	display: block;
+
+ }
+ ul:hover{
+	height: auto;
+ }
+ ul li:first-child{
+	display: block;
+ }
+}
+
