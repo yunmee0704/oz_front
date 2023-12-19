@@ -64,8 +64,7 @@ nav li:hover{
     background-size: cover;
     display: flex;
     align-items: center;
-    justify-content: center;
-    
+    justify-content: center;    
 }
 
 .visual:after{
@@ -92,7 +91,7 @@ nav li:hover{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 5% 0;
+    padding: 5% 0
 }
 
 .box{
