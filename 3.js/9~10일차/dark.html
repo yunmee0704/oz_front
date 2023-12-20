@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다크모드</title>
+</head>
+<body>
+    <button id="white">white</button>
+    <button id="black">black</button>
+</body>
+    <script>
+        document.querySelector('#white').addEventListener('click',function(){
+            document.querySelector('body').style.backgroundColor = 'white'
+        })
+        document.querySelector('#black').addEventListener('click',function(){
+            document.querySelector('body').style.backgroundColor = 'black'
+        })
+    </script>
+    
+</html>

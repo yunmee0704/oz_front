@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let name = prompt('이름이 무엇인가요?');
+        let hobby = prompt('취미는 무엇인가요?');
+        let song = prompt('좋아하는 곡은?');
+
+        document.querySelector('body').innerHTML =
+            `<h1>${name}</h1><p style='color:red;'>취미는 ${hobby}입니다.</p><p>좋아하는 곡은 ${song}입니다.</p>`
+    </script>
+</body>
+
+</html>
