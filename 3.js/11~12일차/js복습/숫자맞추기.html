@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number guessing game</title>
+</head>
+<body>
+    <h1>Mystery Number 맞추기</h1>
+    <p>1에서 100사이의 숫자를 입력하세요</p>
+    <form action="">
+
+        <input type="text" class="number_input">
+        <button type="button" class="submit_btn" pattern ="[0-9]+">확인</button>
+    </form>
+    <p class="result" style="color:white;font-weight:900;"></p>
+    <script>
+        //변수
+        var num = document.querySelector('.number_input');
+        var btn = document.querySelector('.submit_btn');
+        var count = 1;
+
+        
+        // 1과 100사이의 무작위 숫자를 생성하기.
+       const answer = Math.floor(Math.random()*((100-1)+1));
+       
+        //플레이어의 턴을 기록한다.
+       num.addEventListener('change',function(){
+        return num.value;
+       });
+
+       function insert_result(text,color){
+         document.querySelector('.result').innerHTML =text;
+         document.querySelector('.result').style.background = color;       
+       } //결과값이 나오는 텍스트내용과 글 색을 파라미터로 저장하여 만든 함수.
+
+
+       //input창에 값이 바뀔 때 마다 값을 리턴해줌.        
+    
+        btn.addEventListener('click',function(e){
+            count+=1;    //3. 플레이어의 턴을 기록한다. 클릭할 때마다 1씩 증가
+            if(count < 10 ){//도전횟수 체크(10 미만일때)
+                if(num.value == answer){//정답
+                    insert_result('정답입니다.','green')
+                    count=1;
+                    return false;
+                }else if(num.value < answer){//입력한 숫자가 정답보다 적을 때
+                    insert_result('숫자가 작아요.','purple')
+                }else if(num.value > answer){//입력한 숫자가 정답보다 많을 때
+                    insert_result('숫자가 커요.', 'blue')
+                }
+            }else{
+                insert_result('도전횟수가 끝났습니다.','red'); //도전횟수를 다 썼을때.
+                count=1;//카운드 초기화
+            }
+            num.value='';//입력버튼 누른 후 input버튼 초기화
+
+        })
+
+    </script>
+</body>
+</html>
