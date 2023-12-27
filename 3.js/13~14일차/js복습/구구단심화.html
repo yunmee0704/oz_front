@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+table ,tr{
+    border: 1px solid #000;
+    text-align: center;
+    border-bottom: none;
+}
+th,td{
+    border-right: 2px solid #000;
+    border-bottom: 1px solid #000;
+}
+th:last-child,td:last-child{
+    border-right: none;
+}
+</style>
+<body>
+    <script>
+        document.write('<table>');
+        document.write('<tr>');
+        for(let i= 2; i < 10; i++){
+            document.write(`<th> ${i} 단 </th>`)
+        }
+
+        document.write('</tr>');
+        document.write('<tr>');
+        for(let i= 1; i < 10; i++){
+            for(let j = 2; j < 10; j++){
+                document.write(`<td> ${j}*${i}=${i*j} </td>`)
+            }    
+            document.write('</tr>');
+        }
+        
+        document.write('</table>');
+    </script>
+</body>
+</html>

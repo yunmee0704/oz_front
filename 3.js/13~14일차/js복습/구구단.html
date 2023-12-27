@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="answer1">
+        <h1>구구단표</h1>
+    </div>
+
+    <script>
+
+        for(i = 2; i < 10; i++){
+            for(j =1; j<10; j++ ){
+                var line = document.createElement('p');
+                document.querySelector('.answer1').appendChild(line);
+                line.innerHTML =`${i} X ${j} = ${i*j}`;
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        height: 100%;
+        text-align: center;
+
+    }
+    .calculator{
+        margin: 50px auto 0;
+        width: 500px;
+        background-color: skyblue;
+        border-radius: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .result{
+        width: 100%;
+        height: 80px;
+        font-weight: 900;
+        font-size: 50px;
+        vertical-align: middle;
+        background-color: #fff;
+        border-radius: 10px;
+    }
+
+    .number{
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+
+    .number>div{
+        box-sizing: border-box;
+        width: 22%;
+        height: 30px;
+        font-weight: 500;
+        font-size: 20px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        background-color: #fff;
+        text-align: center;
+        border-radius: 5px;
+    }
+    .number>div:nth-child(4n){
+        margin-right: 0;
+    }
+</style>
+<body>
+    <h1>계산기</h1>
+    <div class="calculator">
+        <div class="result"></div>
+        <div class="number">    
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>*</div>
+           
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>/</div>
+      
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>-</div>
+           
+                <div class="reset">C</div>
+                <div>0</div>
+                <div>+</div>
+                <div class="answer">=</div>
+            
+        </div>
+    </div>
+    <script>
+        var num = document.querySelectorAll('.number div');
+        var answer = document.querySelector('.answer');
+        var reset = document.querySelector('.reset');
+
+        var result=  document.querySelector('.result');
+        num.forEach(function(a,i){
+            a.addEventListener('click',function(){
+                if (a.className !=='answer'){
+                    result.innerHTML = `${result.textContent}${a.textContent}`;
+                }
+            })
+        });
+
+        answer.addEventListener('click',function(){
+            result.innerHTML = eval(result.textContent)
+        })
+
+        reset.addEventListener('click',function(){
+            result.innerHTML = '';
+        })
+    </script>
+</body>
+</html>

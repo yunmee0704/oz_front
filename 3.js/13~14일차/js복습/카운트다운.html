@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p></p>
+    <script>
+        var date = new Date();
+        function countDown(){
+            var date = new Date();
+            var thisYear = new Date('2024-01-01');
+            var diff = thisYear - date;
+            const diffDay = Math.floor(diff / (1000*60*60*24));
+            const diffHour = Math.floor((diff / (1000*60*60)) % 24);
+            const diffMin = Math.floor((diff / (1000*60)) % 60);
+            const diffSec = Math.floor(diff / 1000 % 60);
+            document.querySelector('p').innerHTML=`올해 남은 시간 ${diffDay}일 ${diffHour}시간 ${diffMin}분 ${diffSec}초`;
+        }
+
+        document.write(`현재시간 ${date}`);
+
+        countDown();
+        setInterval(countDown, 1000)
+        
+    </script>
+</body>
+</html>
