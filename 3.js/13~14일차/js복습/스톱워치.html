@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>스톱워치</h1>
-    <div>경과시간: <p id="stopwatch">00:00:00</p></div>
+    <div>경과시간: <p id="stopwatch">00:00:00</p>
+    </div>
     <button class="start" onclick="startClock()">시작</button>
     <button class="stop" onclick="stopClock()">중지</button>
     <button class="reset" onclick="resetClock()">리셋</button>
 </body>
-    <script>
-      let timerId;
-let time = 0;
-const stopwatch = document.getElementById("stopwatch");
-let  hour, min, sec;
+<script>
+    let timerId;//setTimeout을 담을 변수 선언
+    let time = 0; //시간 초기값 
+    const stopwatch = document.getElementById("stopwatch"); //경과시간이 입력되는 부분
+    let hour, min, sec;
 
 
-function printTime() {
-    time++;
-    stopwatch.innerText = getTimeFormatString();
-}
-
-//시계 시작 - 재귀호출로 반복실행
-function startClock() {
-    printTime();
-    stopClock();
-    timerId = setTimeout(startClock, 1000);
-}
-
-//시계 중지
-function stopClock() {
-    if (timerId != null) {
-        clearTimeout(timerId);
+    function printTime() {
+        time++;//시간에 1씩 더함
+        stopwatch.innerText = getTimeFormatString();//시간경과를 문자열로 변환한 내용 넣기
     }
-}
 
-// 시계 초기화
-function resetClock() {
-    stopClock()
-    stopwatch.innerText = "00:00:00";
-    time = 0;
-}
+    //시계 시작 - 재귀호출로 반복실행
+    function startClock() {
+        printTime();//시간을 경과시간 부분에 넣어줌
+        stopClock();//시계가 작동중에 다시 버튼이 눌리면 일단 초기화
+        timerId = setTimeout(startClock, 1000);//1초마다 time일씩 더해서 문자열로 변환해서 내용 넣기
+    }
 
-// 시간(int)을 시, 분, 초 문자열로 변환
-function getTimeFormatString() {
-    hour = parseInt(String(time / (60 * 60)));
-    min = parseInt(String((time - (hour * 60 * 60)) / 60));
-    sec = time % 60;
+    //시계 중지
+    function stopClock() {
+        if (timerId != null) {//timer가 작동하고 있었다면
+            clearTimeout(timerId);//멈춰줌
+        }
+    }
 
-    return String(hour).padStart(2, '0') + ":" + String(min).padStart(2, '0') + ":" + String(sec).padStart(2, '0');
-}
-        
-    </script>
+    // 시계 초기화
+    function resetClock() {
+        stopClock();//우선 setTimeout멈춰주고
+        stopwatch.innerText = "00:00:00";//경과시간 초기화
+        time = 0;//시간도 초기화
+    }
+
+    // 시간(int)을 시, 분, 초 문자열로 변환
+    function getTimeFormatString() {
+        hour = parseInt(String(time / (60 * 60))); //밀리세컨드를 시간으로 변환 
+        min = parseInt(String((time - (hour * 60 * 60)) / 60));//ms를 분으로 변환 
+        sec = time % 60; //ms를 초로 변환
+
+        return String(hour).padStart(2, '0') + ":" + String(min).padStart(2, '0') + ":" + String(sec).padStart(2, '0');//경과시간을 입력
+    }
+</script>
+
 </html>
