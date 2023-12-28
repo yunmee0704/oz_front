@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>가위바위보 게임</h1>
+    <p>가위,바위,보 중 하나를 입력하세요</p>
+    <input type="text" name="insert"><button class="result">결과확인</button>
+    <p class="comment"></p>
+
+    <script>
+    
+        var computer =Math.floor(Math.random()*3); //컴퓨터의 선택 랜덤으로 숫자 생성
+        var computer_answer; //나중에 문자로 바꿀 컴퓨터의 선택
+        var user_answer; // 비교를 위해서 사용자의 선택 문자 -> 숫자
+        var result; //승부 결과
+      
+
+ 
+        document.querySelector('.result').addEventListener('click',function(){          //결과 버튼 누르면
+            var user = document.querySelector('input').value; //input창에 user가 입력한 값 가져오고
+            
+            switch(user){ //각각 결과 값에 대한 숫자 부여.
+            case '가위': user_answer = 0; break;
+            case '바위': user_answer=1; break;
+            case '보': user_answer=2; break;
+
+        }    
+        //승부 결과 조건문으로 나타내기
+            if(user_answer == 0){ //사용자가 가위를 냈을 때
+                if(computer == 0){
+                    result ='비겼습니다.'
+                }else if(computer ==1){
+                    result='졌습니다.'
+                }else if(computer == 2){
+                    result='이겼습니다.'
+                }
+            }else if(user_answer == 1){ //사용자가 바위를 냈을 때
+                if(computer == 0){
+                    result ='졌습니다.'
+                }else if(computer == 1){
+                    result ='비겼습니다.'
+                }else if(computer == 2){
+                    result='이겼습니다.'
+                }
+            }else if(user_answer ==2){ // 사용자가 보를 냈을 때
+                if(computer == 0){
+                    result='졌습니다.'
+                }else if(computer == 1){
+                    result='이겼습니다.'
+                }else if(computer == 2){
+                    result ='비겼습니다.'
+                }
+            }
+       
+  
+            switch(computer){//컴퓨터의 랜덤 숫자를 문자로 바꿔줌
+            case 0: computer_answer ='가위'; break;
+            case 1: computer_answer='바위'; break;
+            case 2:computer_answer='보'; break;
+           
+        }
+            document.querySelector('.comment').innerHTML=`당신의 선택:${user}/컴퓨터의 선택:${computer_answer}/결과: ${result}`
+            //결과란에 내용 입력.
+        });
+
+  
+
+         
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 500px;
+        height: 500px;
+    }
+    .box img{
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<body>
+    <h1>오늘 메뉴는?</h1>
+    <div class="box">
+        <img src="./img/1.jpg" alt="" class="food"> 
+    </div>
+    <button class="stop">멈춰!</button>
+
+    <script>
+        var img =['./img/1.jpg','./img/2.jpg','./img/3.jpg']; //이미지 주소를 배열로 만듬
+        var i =0; //1초마다 더해질 변수 i에 0을 할당하여 선언
+
+        var imgChg = function imgChg(){ //i에 1씩 더해지고 그 숫자로 이미지주소를 변경하는 함수를 변수에 담는다.
+            i++;//1씩 더하고
+            if(i > 2){
+                i=0; //2가 넘어가면 다시 0으로 초기화
+            }
+            document.querySelector('.food').src = img[i];//배열에 있는 주소를 하나씩 꺼내서 바꿈.
+            
+        }
+
+        var timer = setInterval(imgChg,1000); //1초에 한번씩 함수가 작동하게 설정
+
+        document.querySelector('.stop').addEventListener('click',function(){ //멈춰버튼을 누르면
+            clearInterval(timer);//setInterval메서드 멈춤.
+        })
+
+    </script>
+</body>
+</html>

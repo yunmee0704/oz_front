@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="add">추가</button>
+    <button class="out">출력</button>
+    <button class="write">목록출력</button>
+
+    <p>입력한 아이스크림 목록:</p>
+    <p class="result"></p>
+
+    <script>
+        
+        var ice_list =[];//입력되는 아이스크림 값 넣을 배열 
+        document.querySelector('.add').addEventListener('click',function(){//추가 버튼 누르면
+            var iceCream = prompt('아이스크림 입력');//입력창이 뜨고
+            ice_list.push(iceCream);//입력한 아이스크림 입력이 배열에 저장됨
+        });
+
+        document.querySelector('.out').addEventListener('click',function(){//출력버튼이 누르면
+            for(let i =0; i<ice_list.length; i++){//아이스크림 배열 길이 만큼 
+                alert(`${ice_list[i]}`);//알림창이 뜸
+            }
+        });
+
+        document.querySelector('.write').addEventListener('click',function(){//목록출력 버튼 누르면
+            document.querySelector('.result').innerHTML=ice_list;//그 값이 문서에 출력됨.
+        });
+    </script>
+</body>
+</html>

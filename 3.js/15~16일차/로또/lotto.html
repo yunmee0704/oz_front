@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        text-align: center;
+    }
+
+    button{
+        width: 150px;
+        height: 90px;
+        margin-right: 10px;
+        font-size: 25px;
+        font-weight: 700;
+        border-radius: 20px;
+        color:#fff;
+        border:none;
+        background: rgb(88, 88, 218);
+       
+    }
+
+    .result{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    p{
+        width: 80px;
+        height: 80px;
+        font-weight: 900;
+        font-size: 25px;
+        vertical-align: middle;
+        text-align: center;
+        border-radius: 50%;
+        color:#fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 10px;
+    }
+
+    p:first-child{
+        background-color: red;
+    }
+    p:nth-child(2){
+        background-color: orange;
+    }
+    p:nth-child(3){
+        background-color: rgb(197, 197, 6);
+    }
+    p:nth-child(4){
+        background-color: green;
+    }
+    p:nth-child(5){
+        background-color: blue;
+    }
+    p:nth-child(6){
+        background-color: violet;
+    }
+</style>
+<body>
+    <script>
+
+        var date = new Date(); //오늘 날짜 생성.
+        var title = document.createElement('h1');//제목으로 쓸 h1요소 생성
+        var body = document.querySelector('body');//body를 여러번 찾을거같아서 변수로 저장
+        body.appendChild(title);//body에 냅다 타이틀 붙이기
+        title.innerHTML=`${date.getFullYear()}년 ${date.getMonth()+1}월 ${date.getDay()}일 로또 번호 추첨`
+        //타이틀의 내용 : Date()객체에서 연,월,일 넣기
+
+        var result = document.createElement('div');//결과가 나올 div 추가
+        body.appendChild(result);//다시 body 자식요소로 넣기
+        document.querySelector('div').classList.add('result'); //이용이 편하게 클래스 넣어버림
+
+        var btn1=document.createElement('button');//추첨버튼 생성
+        var btn2=document.createElement('button');//다시하는 버튼 생성
+        body.appendChild(btn1); //버튼 요소 넣어주기
+        body.appendChild(btn2);//버튼 요소 넣어주기
+        btn1.innerHTML='추첨'; //버튼 요소안에 내용 적어주기
+        btn2.innerHTML='다시';//버튼 요소안에 내용 적어주기
+
+        btn1.addEventListener('click',function(){
+            var lucky =[];//당첨번호 담아줄 배열 선언
+            for(let i = 0; i < 6; i++){ //총 당첨번호가 6개니까용..6번 반복
+               var num = Math.floor(Math.random()*45)//로또 번호는 1부터 45까지 있으니까 이 사이의 수 랜덤 생성
+                lucky.push(num);//배열에 생성된 난수 넣기.                        
+            }   
+
+           for(let i= 0; i < lucky.length; i++){ // 완성된 배열의 길이 만큼 반복
+            var num_line = document.createElement('p'); //당첨번호 하나씩 들어갈 p요소 만들어주고
+            document.querySelector('.result').appendChild(num_line);//부모요소 body에 붙여줌
+            num_line.innerHTML =`${lucky[i]}` //그 안에 내용에 당첨번호 하나씩 넣기.
+            }
+        
+        });       
+        btn2.addEventListener('click',function(){ //두번째 버튼 클릭하면
+           result.innerHTML=''; //결과값은 다시 지워짐.
+        })
+     
+    </script>
+</body>
+</html>
