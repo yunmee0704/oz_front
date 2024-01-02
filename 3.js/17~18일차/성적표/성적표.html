@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    td,table{
+        border: 1px solid #000;
+    }
+    td{
+        text-align: center;
+        font-size: 20px;
+        width: 150px;
+    }
+</style>
+<body>
+    <h1>떡잎유치원 멀리뛰기 결과</h1>
+    <table>
+        <tr>
+            <td>이름</td>
+            <td>점수</td>
+        </th>
+        <tr>
+            <td>짱구</td>
+            <td>45</td>
+        </tr>
+        <tr>
+            <td>맹구</td>
+            <td>75</td>
+        </tr>
+        <tr>
+            <td>철수</td>
+            <td>95</td>
+        </tr>
+        <tr>
+            <td>훈이</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>유리</td>
+            <td>68</td>
+        </tr>
+        <tr>
+            <td>수지</td>
+            <td>86</td>
+        </tr>
+        
+    </table>
+    <h2>75점이 넘는 사람:<span class="over75"></span></h2>
+    <h2>랜덤으로 추출한 사람 중 높은 점수 순:<span class="sort_arr"></span></h2>
+    <script>
+        const score =[{name:'짱구',result:45},{name:'맹구',result:75},{name:'철수',result:95},{name:'훈이',result:50},{name:'유리',result:68},{name:'수지',result:85}];
+        const over_75 = document.querySelector('.over75');
+        const sort_arr = document.querySelector('.sort_arr');
+
+        //75점 이상
+        var arr_fliter = score.filter(function(a){
+            return a.result >= 75;            // score 자료 중 75점 넘는 자료 추출
+        });
+
+        for(let i = 0; i <arr_fliter.length; i++){
+            over_75.innerHTML=`${over_75.innerHTML}${arr_fliter[i].name} ` // 75점이 넘는 자료 중 이름만 넣기
+        };
+
+        var arr =[];//빈 배열
+        var random = Math.random()*6+1; //랜덤으로 1~6 까지 배열 길이 추출
+        for(let i =0; i <= random; i++){ //랜덤 수만큼 score에서 뽑아오기
+            arr.push(score[i]);//빈배열에 넣어주기기
+        }
+ 
+        var sort_75 = arr.sort(function(a,b){ // 배열 역순으로 정렬
+            return b.result - a.result;
+        });
+
+        for(let i = 0; i<arr.length; i++){[
+            sort_arr.innerHTML=`${sort_arr.innerHTML}${sort_75[i].name} `//점수 높은 순으로 이름 html에 넣어주기
+        ]}
+    </script>
+</body>
+</html>
