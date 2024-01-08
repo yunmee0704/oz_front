@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var level=prompt('난이도를 설정해주세요');
+        var answer = Math.floor(Math.random()*level);
+        console.log(answer)
+        for(let i= 1; i <= level; i++){
+            var user_answer =prompt('답을 입력해주세요');
+            if(i < level){
+                if(answer == user_answer){
+             document.write(`축하합니다 정답입니다.(${i}/${level})`)
+             break;
+            }else if(answer < user_answer){
+                    alert(`다운(${i}/${level})`)
+                }else if(answer > user_answer){
+                    alert(`업(${i}/${level})`)
+                }
+            }else{
+                document.write('실패했습니다!')
+            }
+        
+
+        }
+
+    </script>
+</body>
+</html>

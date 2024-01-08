@@ -3,27 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
+<style>
+    body{
+        background-color: #000;
+        font-size: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: 'Titillium Web', sans-serif;
+    }
+
+    .container{
+        text-align: center;
+        padding: 2rem;
+        border-radius: 1rem;
+        color:aqua;
+    }
+
+    h1{
+       font-size: 4rem;
+       font-weight: 900;
+       color:aqua;
+
+    }
+
+    h3{
+        font-size: 3rem;
+    }
+
+    p{
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+    }
+
+    p .white-box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+       
+    }
+
+    p .white-box span{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        padding: 0.2rem;
+        height: 4rem;
+        background-color: #fff;
+        color:#000;
+    }
+
+    /* @media screen and (max-width: 400px) {
+        p{
+            flex-direction: column;
+        }
+    }
+ */
+
+</style>
 <body>
-    <p></p>
+   <div class="container">
+    <h1>COUNT DOWN</h1>
+    <p class="countDown">
+        <span class="white-box"><span class="days"></span>days</span>
+        <span class="white-box"><span class="hours"></span>hours</span>
+        <span class="white-box"><span class="min"></span>min</span>
+        <span class="white-box"><span class="sec"></span>sec</span>
+    </p>
+    <h3>Study Hard!</h3>
+   </div>
     <script>
         var date = new Date();
+
         function countDown(){
             var date = new Date();
-            var thisYear = new Date('2024-01-01');
+            var thisYear = new Date('2024-06-03'); //밀리초(1/1000)로 반환
+
             var diff = thisYear - date;
+
+            
             const diffDay = Math.floor(diff / (1000*60*60*24));
-            const diffHour = Math.floor((diff / (1000*60*60)) % 24);
+            const diffHour = Math.floor((diff / (1000*60*60))%24);
             const diffMin = Math.floor((diff / (1000*60)) % 60);
             const diffSec = Math.floor(diff / 1000 % 60);
-            document.querySelector('p').innerHTML=`올해 남은 시간 ${diffDay}일 ${diffHour}시간 ${diffMin}분 ${diffSec}초`;
+
+            document.querySelector('.days').innerHTML=`${diffDay}`;
+            document.querySelector('.hours').innerHTML=` ${diffHour}`;
+            document.querySelector('.min').innerHTML=` ${diffMin}`;
+            document.querySelector('.sec').innerHTML=`  ${diffSec}`;
         }
 
-        document.write(`현재시간 ${date}`);
+        // document.write(`현재시간 ${date}`);
 
         countDown();
-        setInterval(countDown, 1000)
+        setInterval(countDown, 1000);
         
     </script>
 </body>
