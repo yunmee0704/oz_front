@@ -73,9 +73,9 @@ function displayTodos(){
     todoArr.forEach(function(aTodo){//로컬스토리지에서 가져온 투두리스트의 자료들만큼
         const todoItem = document.createElement('li')//li 생성
         const todoContent = document.createElement('p')//내용들어갈 부분 
-        const btnGroup = document.createElement('p')//버튼그룹
-        const todoDelBtn = document.createElement('span')
-        const todoEditBtn = document.createElement('span')
+        const btnGroup = document.createElement('p')//버튼그룹 생성
+        const todoDelBtn = document.createElement('span')//삭제버튼 생성
+        const todoEditBtn = document.createElement('span')//수정버튼 생성
         todoDelBtn.textContent='삭제'//그 안에 들어갈 삭제버튼 생성
         todoEditBtn.textContent='수정'//그 안에 들어갈 삭제버튼 생성
         todoContent.textContent = aTodo.todoText //li안에 들어갈 내용은 투두리스트 배열의 각 자료의 내용
