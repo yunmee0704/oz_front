@@ -100,6 +100,7 @@ body{
 .app form{
    width: 100%;
     text-align: center;
+    display: flex;
 }
 
 .app form input{
@@ -119,6 +120,7 @@ body{
 .app form input:last-child{
     width:2rem;
     height: 2rem;
+    margin-left: 0.5rem;
     background-color: #fff;
     border-radius: 50%;
 }
@@ -151,12 +153,56 @@ body{
     opacity: 0.5;
     background-color : rgba(0, 0, 0, 0.8);
 }
+.app ul li p:first-child{
+    width:70%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 
-.app ul li span{
+}
+.app ul li p:last-child{
+ display:flex;
+   
+}
+
+.app ul li p span{
+    display:inline-block;
+    margin-right: 0.1rem;
     font-size: 0.8rem;
     background-color: red;
     padding: 0.2rem 0.4rem;
     color:#fff;
     border-radius: 10%;
-   
+}
+.app ul li p span:last-child{
+    display:inline-block;
+    margin-right: 0.1rem;
+    background-color: green;
+    color:#fff;
+}
+
+@media screen and (max-width:768px){
+    #container{
+        width:80%;
+        padding:2rem 0;
+    }
+    .app{
+        width:80%;
+    }
+}
+
+@media screen and (max-width:458px){
+    .app h1{
+        font-size: 2rem;
+    }
+    .app ul li{
+        font-size: 1rem;
+    }
+    .app ul li p span{
+        border-radius: 50%;
+        width: 0.7rem;
+        height: 0.7rem;
+        padding: 0;
+        font-size: 0;
+    }
 }

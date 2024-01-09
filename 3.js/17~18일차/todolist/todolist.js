@@ -31,6 +31,23 @@ function handleTodoDelBtnClick(clickedId){
     displayTodos()//보여주기
     saveTools()//로컬저장소에 저장하기
 }
+//할일 수정하기
+function handleTodoEditBtnClick(clickedId){    
+ todoArr = todoArr.map(function(aTodo){
+    
+    if(aTodo.todoId === clickedId){ 
+      return {
+        ...aTodo,
+        todoText : todoForm.todo.value
+       }
+    }else{
+        return aTodo
+    }
+ })
+ displayTodos()//보여주기
+ saveTools()//로컬저장소에 저장하기
+
+}
 
 //한일 완료 체크하기
 function handleTodoItemClick(clickedId){
@@ -44,6 +61,7 @@ function handleTodoItemClick(clickedId){
             return aTodo
         }
     })
+    
     displayTodos()
     saveTools()
 }
@@ -54,9 +72,13 @@ function displayTodos(){
 
     todoArr.forEach(function(aTodo){//로컬스토리지에서 가져온 투두리스트의 자료들만큼
         const todoItem = document.createElement('li')//li 생성
+        const todoContent = document.createElement('p')//내용들어갈 부분 
+        const btnGroup = document.createElement('p')//버튼그룹
         const todoDelBtn = document.createElement('span')
+        const todoEditBtn = document.createElement('span')
         todoDelBtn.textContent='삭제'//그 안에 들어갈 삭제버튼 생성
-        todoItem.textContent = aTodo.todoText //li안에 들어갈 내용은 투두리스트 배열의 각 자료의 내용
+        todoEditBtn.textContent='수정'//그 안에 들어갈 삭제버튼 생성
+        todoContent.textContent = aTodo.todoText //li안에 들어갈 내용은 투두리스트 배열의 각 자료의 내용
         todoItem.title='클릭하면 완료됨'//li위에 마우스를 올리면 완료하는 방법 나옴
         todoDelBtn.title='클릭하면 삭제됨'//삭제버튼 위에 마우스 올리면 삭제하는법 설명
 
@@ -79,9 +101,17 @@ function displayTodos(){
          
         })
 
-
-        todoItem.appendChild(todoDelBtn)//삭제버튼 추가
+        todoEditBtn.addEventListener('click',function(e){
+            e.stopPropagation();
+            handleTodoEditBtnClick(aTodo.todoId)
+            todoForm.todo.value=''//입력 후 인풋창 초기화
+        })
+      
         todoList.appendChild(todoItem)//새로운 내용 추가
+        todoItem.appendChild(todoContent)//버튼그룹 추가
+        todoItem.appendChild(btnGroup)//버튼그룹 추가
+        btnGroup.appendChild(todoDelBtn)//삭제버튼 추가
+        btnGroup.appendChild(todoEditBtn)//수정버튼 추가
     })
 }
 
